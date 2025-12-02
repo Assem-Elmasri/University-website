@@ -142,7 +142,7 @@ export default function AuthPage() {
                     </p>
                     <div className="relative flex w-full items-center">
                       <span className="material-symbols-outlined absolute left-4 text-slate-400 dark:text-slate-500">
-                        lock
+                        <LockIcon size={20} />
                       </span>
                       <input
                         type={showPassword ? "text" : "password"}
