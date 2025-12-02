@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useApp } from "@/context/AppContext";
-import { Eye, EyeClosed , LockIcon, User2} from "lucide-react";
+import { Eye, EyeClosed , LockIcon, User2, Moon , Sun} from "lucide-react";
 
 export default function AuthPage() {
   const [authMode, setAuthMode] = useState("Login");
@@ -37,12 +37,11 @@ export default function AuthPage() {
           className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-white/5 text-white backdrop-blur-sm hover:bg-white/20 dark:hover:bg-white/10 transition-colors"
           aria-label="Toggle theme"
         >
-          <span className="material-symbols-outlined text-2xl dark:hidden">
-            dark_mode
-          </span>
-          <span className="material-symbols-outlined text-2xl hidden dark:inline">
-            light_mode
-          </span>
+          {theme === "dark" ? (
+            <Sun size={24} className="material-symbols-outlined text-2xl" />
+          ) : (
+            <Moon size={24} className="material-symbols-outlined text-2xl" />
+          )}
         </button>
       </div>
 
