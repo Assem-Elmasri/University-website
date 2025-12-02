@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useApp } from "@/context/AppContext";
-import { Eye, EyeClosed } from "lucide-react";
+import { Eye, EyeClosed , LockIcon} from "lucide-react";
 
 export default function AuthPage() {
   const [authMode, setAuthMode] = useState("Login");
@@ -154,11 +154,11 @@ export default function AuthPage() {
                       />
                       <button
                         type="button"
-                        onClick={() => setShowPassword(showPassword)}
+                        onClick={() => setShowPassword(!showPassword)}
                         className="absolute right-4 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
                       >
                         <span className="material-symbols-outlined">
-                          {showPassword ? "visibility" : "visibility_off"}
+                          {showPassword ? <EyeClosed size={22} /> : <Eye size={22} />}
                         </span>
                       </button>
                     </div>
