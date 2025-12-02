@@ -29,25 +29,25 @@ const Header = () => {
         </div>
         <nav className="hidden lg:flex items-center gap-4 xl:gap-9">
           <a
-            className="text-sm font-medium leading-normal hover:text-primary transition-colors"
+            className="text-sm font-medium leading-normal hover:text-primary transition-colors hover:font-bold"
             href="#"
           >
             Academics
           </a>
           <a
-            className="text-sm font-medium leading-normal hover:text-primary transition-colors"
+            className="text-sm font-medium leading-normal hover:text-primary transition-colors hover:font-bold"
             href="#"
           >
             Admissions
           </a>
           <a
-            className="text-sm font-medium leading-normal hover:text-primary transition-colors"
+            className="text-sm font-medium leading-normal hover:text-primary transition-colors hover:font-bold"
             href="#"
           >
             Campus Life
           </a>
           <a
-            className="text-sm font-medium leading-normal hover:text-primary transition-colors"
+            className="text-sm font-medium leading-normal hover:text-primary transition-colors mr-20 hover:font-bold"
             href="#"
           >
             Research
@@ -66,7 +66,7 @@ const Header = () => {
           </div>
         </label>
         <div className="flex gap-2">
-          <button className="hidden sm:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-[#102023] text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+          <button className="hidden sm:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-[#102023] text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity bg-sky-300 hover:bg-sky-400">
             <span className="truncate">Apply Now</span>
           </button>
           <button className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-gray-100 dark:bg-[#224249] text-gray-800 dark:text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-gray-200 dark:hover:bg-[#315f68] transition-colors">
