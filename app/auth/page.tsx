@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useApp } from "@/context/AppContext";
-import { Eye, EyeClosed , LockIcon, User2, Moon , Sun} from "lucide-react";
+import { Eye, EyeClosed , LockIcon, User2, Moon , Sun, GraduationCap} from "lucide-react";
 
 export default function AuthPage() {
   const [authMode, setAuthMode] = useState("Login");
@@ -60,7 +60,7 @@ export default function AuthPage() {
               <div className="relative z-10 flex flex-col items-center text-center lg:items-start lg:text-left gap-4 max-w-md">
                 <div className="flex items-center gap-3">
                   <span className="material-symbols-outlined text-4xl text-primary">
-                    school
+                    <GraduationCap size={34} color="#5bbce4" />
                   </span>
                   <h1 className="text-white text-3xl font-bold">
                     Nebula University
@@ -171,7 +171,7 @@ export default function AuthPage() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="flex items-center justify-center w-full h-14 rounded-lg bg-primary text-slate-900 text-base font-bold leading-normal shadow-sm hover:opacity-90 transition-opacity"
+                    className="flex items-center justify-center w-full h-14 rounded-lg bg-primary text-slate-900 text-base font-bold leading-normal shadow-sm hover:opacity-90 transition-opacity bg-sky-300 hover:bg-sky-400 hover:cursor-pointer"
                   >
                     {authMode}
                   </button>
