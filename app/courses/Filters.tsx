@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Search } from "lucide-react";
 export default function Filters() {
   const [q, setQ] = useState("");
 
@@ -43,12 +43,16 @@ export default function Filters() {
               //TODO adding filtering functionality like filtering or collapsing the filter boxs
             }
           <div className="mb-4">
-            <input
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              placeholder="Search by course name or code"
-              className="w-full rounded-md bg-slate-800 border border-slate-700 px-3 py-2 text-slate-300 placeholder-slate-500"
-            />
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+              <input
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                placeholder="Search by course name or code"
+                className="w-full pl-10 rounded-md bg-slate-800 border border-slate-700 px-3 py-2 text-slate-300 placeholder-slate-500"
+              />
+              
+            </div>
           </div>
 
           <div className="mb-4">

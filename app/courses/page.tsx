@@ -1,23 +1,13 @@
 import CourseCard from "./CourseCard";
 import AddCourseButton from "./AddCourseButton";
 import Filters from "./Filters";
-
+import RegHeader from "../../components/RegHeader";
 export default function CoursesPage() {
   const courses = [
-    {
-      id: 1,
-      code: "CS101",
-      title: "Introduction to Programming",
-      status: "Open",
-    },
-    {
-      id: 2,
-      code: "HIST250",
-      title: "Modern World History",
-      status: "Waitlist",
-    },
-    { id: 3, code: "MATH150", title: "Calculus I", status: "Open" },
-    { id: 4, code: "BIO110", title: "General Biology", status: "Closed" },
+    {id: 1, code: "CS101", title: "Introduction to Programming", status: "Open", time: "Mon & Wed 10:00 - 11:30",doctor: "Dr. Smith"},
+    {id: 2, code: "HIST250", title: "Modern World History", status: "Waitlist", time: "Tue & Thu 14:00 - 15:30", doctor: "Dr. Johnson"},
+    { id: 3, code: "MATH150", title: "Calculus I", status: "Open", time: "Mon & Wed 09:00 - 10:30", doctor: "Dr. Lee" },
+    { id: 4, code: "BIO110", title: "General Biology", status: "Closed", time: "Tue & Thu 11:00 - 12:30", doctor: "Dr. Kim" },
   ];
 
   return (
@@ -25,6 +15,7 @@ export default function CoursesPage() {
       {
         //TODO add Header for courses page
       }
+      <RegHeader />
 
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-6">
@@ -33,9 +24,13 @@ export default function CoursesPage() {
             <Filters />
           </div>
           <div className="max-w-7xl mx-auto">
-            <header className="mb-6 flex items-center justify-between">
-              <h1 className="text-3xl font-bold">Course Catalog</h1>
-              <AddCourseButton />
+            <header className="mb-6 flex sm:flex-row items-start sm:items-center justify-between gap-4">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                Course Catalog
+              </h1>
+              <div className="flex items-center gap-3 shrink-0">
+                <AddCourseButton />
+              </div>
             </header>
 
             {/* =========== Courses grid ============= */}
