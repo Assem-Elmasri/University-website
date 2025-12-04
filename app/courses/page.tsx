@@ -28,7 +28,7 @@ export default function CoursesPage() {
 
     async function fetchCourses() {
       try {
-        const res = await fetch("/api/courses", { signal });
+        const res = await fetch("/api/courses", { signal , cache: "no-store" , next: { revalidate: 0 }});
         if (!res.ok) throw new Error(`Server error: ${res.status}`);
         const data = await res.json();
         if (signal.aborted) return;
@@ -46,12 +46,16 @@ export default function CoursesPage() {
       }
     }
 
+
+
     fetchCourses();
 
     return () => {
       controller.abort();
     };
   }, []);
+
+  console.log("Courses:", courses);
 
   return (
     <main className="min-h-screen bg-slate-900 text-slate-100 p-6">

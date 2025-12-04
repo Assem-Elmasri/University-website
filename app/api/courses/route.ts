@@ -15,10 +15,20 @@ export async function GET() {
       'Open' AS status,
       CONCAT(i.F_name, ' ', i.L_name) AS doctor
     FROM COURSE c
-    JOIN SECTION s ON c.COURSE_ID = s.Course_ID
-    JOIN INSTRUCTOR i ON s.Instructor_ID = i.Instructor_ID
+    LEFT JOIN SECTION s ON c.COURSE_ID = s.Course_ID
+    LEFT JOIN INSTRUCTOR i ON s.Instructor_ID = i.Instructor_ID
     LIMIT 12
   `;
   const rows = await query(sql);
   return NextResponse.json(rows);
+}
+
+export async function POST(request: Request) {
+  const { courseName,hourCredits, description, courseLevel, depId} = await request.json();
+  const sql = `
+    INSERT INTO COURSE ( COURSE_NAME, HourCredits , DESCRIPTION, Course_Level , DepID)
+    VALUES ( ?, ?, ?, ?, ?);
+  `;
+  const result = await query(sql, [courseName, hourCredits, description, courseLevel, depId]);
+  return NextResponse.json({ message: "Course added", result });
 }
