@@ -18,9 +18,38 @@ export default function CourseCard({
 }) {
   const displayTitle = course.title ?? course.code ?? `Course ${course.id}`;
   const idLabel = `#${course.id}`;
-  function handleEnroll(id: number) {
-    //TODO add enroll logic
-    alert(`Enrolled in course with ID: ${id}`);
+
+  async function handleEnroll(courseId: number) {
+    try {
+      // Retrieve student ID from cookies (set by login)
+      const cookies = document.cookie.split("; ");
+      const tokenCookie = cookies.find((c) => c.startsWith("token="));
+      const studentID = tokenCookie ? tokenCookie.split("=")[1] : null;
+
+      if (!studentID) {
+        alert("Please log in to enroll.");
+        return;
+      }
+
+      const res = await fetch("/api/Enroll", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ studentID, courseID: courseId }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(`Enrollment failed: ${data.error || res.statusText}`);
+        return;
+      }
+
+      alert(`Successfully enrolled in course ${courseId}!`);
+    } catch (err: unknown) {
+      alert(
+        `Enrollment error: ${err instanceof Error ? err.message : String(err)}`
+      );
+    }
   }
 
   function handleJoinWaitlist(id: number) {
