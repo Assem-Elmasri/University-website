@@ -65,7 +65,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           password: "",
         });
         // Navigate to dashboard
-        router.push('/');
+        router.push('/courses');
       } else {
         console.error("Login failed:", data);
         setError(data.error || "Login failed. Please try again.");
