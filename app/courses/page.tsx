@@ -46,9 +46,23 @@ export default function CoursesPage() {
       }
     }
 
+    async function fetchInstructors(){
+      try {
+        const res = await fetch("/api/instructors", { signal , cache: "no-store" , next: { revalidate: 0 }});
+        if (!res.ok) throw new Error(`Server error: ${res.status}`);
+        const data = await res.json();
+        console.log("Instructors:", data);
+      } catch (err: unknown) {
+        if (signal.aborted) return;
+        console.error("Failed to fetch instructors:", err);
+      }
+    }
+    
 
+    
 
     fetchCourses();
+    fetchInstructors();
 
     return () => {
       controller.abort();
